@@ -232,13 +232,12 @@ ul.alert-dropdown {
     display: inline-block;
     font-size: 13px;
     line-height: 12px;
+    background-color: #999;
+    min-width: 54px;
+    text-align: center;
 }
 
 .status-online {
     background-color: #41b551;
-}
-
-.status-offline {
-    background-color: #999;
 }
 

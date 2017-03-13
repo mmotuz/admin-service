@@ -1,0 +1,49 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Instances <small>All what you need is here</small>
+        </h1>
+
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Status</th>
+                <th>Host</th>
+                <th>Type</th>
+                <th>Id</th>
+                <th>OS</th>
+                <th>Private Ip</th>
+                <th>Public Ip</th>
+                <th>Zone</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="instance in instances">
+                <td>
+                    <span class="status status-{{ instance.status }}">{{ instance.status }}</span>
+                </td>
+                <td>{{ instance.hostname }}</td>
+                <td>{{ instance.instanceType }}</td>
+                <td>{{ instance.instanceId }}</td>
+                <td>{{ instance.os }}</td>
+                <td>{{ instance.privateIp }}</td>
+                <td>{{ instance.publicIp }}</td>
+                <td>{{ instance.availabilityZone }}</td>
+                <td>
+                    <button ng-click="startInstance(instance.instanceId)">Start</button>
+                    <button ng-click="stopInstance(instance.instanceId)">Stop</button>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /.row -->

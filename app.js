@@ -17,29 +17,12 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 
 var index = require('./routes/index')(),
-    environments = require('./routes/environments')()
+    instancesCtrl = require('./controllers/instances')(config),
+    instancesRouter = require('./routes/instances')(instancesCtrl)
     ;
 app.use('/', index);
-app.use('/environments', environments);
+app.use('/', instancesRouter);
 
-/*
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-*/
-// error handler
-app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-});
 
 app.listen(config.app.port);
 log.info("Server started at %s", config.app.port);
