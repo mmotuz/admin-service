@@ -40,6 +40,7 @@ module.exports = function(controller){
     }
 
     router.get('/instances', getInstances);
+    router.get('/inst', getInstances);
     router.post('/instance/start', startInstances);
     router.post('/instance/stop', stopInstances);
 
